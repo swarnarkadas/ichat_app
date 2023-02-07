@@ -11,7 +11,6 @@
 </ol>
 
 <h1>User 1: Swarnarka Das</h1>
-#output
 
 ![Screenshot (257)](https://user-images.githubusercontent.com/84660268/217365582-f06c975b-0403-40d1-a98c-164e36d47d3c.png)
 
