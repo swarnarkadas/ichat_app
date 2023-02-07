@@ -11,7 +11,9 @@
 </ol>
 
 <h1>User 1: Swarnarka Das</h1>
-![Screenshot (257)](https://user-images.githubusercontent.com/84660268/217365125-66bb2537-d02f-48a5-a4b5-ec915cd68fa5.png)
+#output
+
+![Screenshot (257)](https://user-images.githubusercontent.com/84660268/217365582-f06c975b-0403-40d1-a98c-164e36d47d3c.png)
+
 
 <h1>User 1: Ray</h1>
-![Screenshot (258)](https://user-images.githubusercontent.com/84660268/217364648-6dcd20b7-0c4b-4ddb-bc7e-ebe8de50eb85.png)
