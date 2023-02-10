@@ -27,7 +27,8 @@
 <h1>Process to run the app</h1>
 <hr>
 <ol>
-  </li> first open terminal and write - git clone
+  <li> first open terminal and write - git clone https://github.com/swarnarkadas/ichat_app.git </li>
+  <li> then - npm install</li>
   <li>first open terminal and write - <b>cd nodeServer</b></li>
   <li>run <b>npm run dev</b></li>
   <li>Install the extension 'live server' for Vs Code.</li>
