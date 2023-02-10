@@ -29,7 +29,7 @@
 <ol>
   <li> first open terminal and write - git clone https://github.com/swarnarkadas/ichat_app.git </li>
   <li> then - npm install</li>
-  <li>first open terminal and write - <b>cd nodeServer</b></li>
+  <li>write - <b>cd nodeServer</b></li>
   <li>run <b>npm run dev</b></li>
   <li>Install the extension 'live server' for Vs Code.</li>
   <li>After the extension gets installed navigate to index.html and open it to edit.</li>
