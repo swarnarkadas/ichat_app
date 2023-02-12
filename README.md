@@ -28,7 +28,7 @@
 <hr>
 <ol>
   <li>First Fork the repo</li>
-  <li> first open terminal and write - git clone https://github.com/swarnarkadas/ichat_app.git </li>
+  <li> Then open terminal and write - git clone https://github.com/swarnarkadas/ichat_app.git </li>
   <li> then - npm install</li>
   <li>write - <b>cd nodeServer</b></li>
   <li>run <b>npm run dev</b></li>
