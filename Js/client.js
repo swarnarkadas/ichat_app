@@ -4,7 +4,7 @@
 var socket = io('http://localhost:5500', { transports: ['websocket', 'polling', 'flashsocket'] });   //we made connection with server side Socket.io to Client
                                           // Have to add this part to avoid -'No 'Access-Control-Allow-Origin' header is present' error
 
-
+                                        
 //Get DOM elements in respective Js variables                                          
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp')
@@ -28,8 +28,16 @@ const append =(message,position)=>{
 
 
 //Ask new user for his/her name and let the server know
-const name = prompt("Enter Your Name To Join")
+let name="Enter your name here";
+ name = prompt("Enter Your Name To Join");
+if(name==null || name=="" )
+{
+    alert("Please enter valid name.");
+    window.location.reload();
+}else{
 socket.emit('new-user-joined',name)      // so here 'emit()' means we send message or trigger the 'new-user-joined' event along with the user name' to 'socket.io' to listen it
+}
+
 
 //If a new user joins,receive his name from the server(socket.on of 'index.js')
 socket.on('user-joined',name =>{

@@ -1,0 +1,23 @@
+{
+  "name": "ichat_app",
+  "version": "1.0.0",
+  "description": "<h1>RealTime Chat Application - IChat</h1>\r <hr>\r <ul>\r   <li>It is an scalable Realtime Chatting Application that provides an interface for multiple user chatting at the same time.</li>\r   <li>FrontEnd Technologies- HTML, CSS</li>\r   <li>BackEnd Technologies- JavaScript, Node.js</li>\r   <li>Used Socket.io module for a two-way connection between client and server.</li>\r   <li>FrontEnd includes a navigation bar, Chat window and a form submit button for sending the messages.</li>\r   <li>HTML has been used for preparing the structure of application.</li>\r   <li>CSS has been used for styling the application.</li>\r   <li>Added Client sided JavaScript for the purpose of playing with DOM elements.</li>\r   <li>First of all stored all the DOM elements in a respectives JS variable.</li>\r   <li>Used Audio file (ting.mp3) which gives notification on receiving the messages.</li>\r   <li>Everytime a new user tries to join, first of all ask his/her name and let the server know.</li>\r   <li>If a new user joins, receive the event from the server using eventListner.</li>\r   <li>Receive message from server using receive function.</li>\r   <li>If a user leaves the chat, tell all the other users that this user has left the chat.</li>\r   <li>Server Side JavaScript will handle the Socket IO connections.</li>\r   <li>If a new user joins, let the other users connected with server know.</li>\r   <li>If someone sends the message, broadcast it to other people.</li>\r   <li>If someone leaves the chat, let others know.</li>\r </ul>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mecivil/ichat_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mecivil/ichat_app/issues"
+  },
+  "homepage": "https://github.com/mecivil/ichat_app#readme",
+  "dependencies": {
+    "popups": "^1.1.3",
+    "socket.io": "^4.6.0"
+  }
+}
