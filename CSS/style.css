@@ -41,8 +41,8 @@ h1{
     display: flex;
     height: auto;
     word-wrap: break-word;
-white-space: pre-wrap;
-word-break: break-word;
+    white-space: pre-wrap;
+    word-break: break-word;
 }
 
 .left {
@@ -92,3 +92,34 @@ word-break: break-word;
     border-color: azure;
 }
 
+  
+  .message {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .message-content {
+    margin-bottom: 5px;
+  }
+  
+  .message-time {
+    font-size: 12px;
+    color: #888;
+  }
+
+  .message-content {
+    margin-bottom: 5px;
+  }
+  
+  .message-time {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 5px;
+  }
+  
+  .message-sender {
+    font-size: 12px;
+    color: #888;
+  }
+  
+  
