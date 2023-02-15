@@ -59,7 +59,9 @@ socket.on('left',name =>{
 form.addEventListener('submit', (e)=>{
     e.preventDefault();     //so the page will not reload
     const message = messageInput.value;
-    append(`You: ${message}`,'right')    //If you send any message
+    const currentTime = new Date();
+    append(`[${currentTime.toLocaleTimeString()}] You: ${message}`, 'right');
+    // append(`You: ${message}`,'right')    //If you send any message
     socket.emit('send',message);     //notify other that you send a message
     messageInput.value =''    //after the message sent, make the menssage form' blank 
 })
