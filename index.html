@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iChat - Realtime Node Socket.io Chat App</title>
-    <script defer src="http://localhost:5500/socket.io/socket.io.js"></script>     <!-- We have to add this script to connect 'socket.io with the Client-side server'-->
-     <script defer src="Js/client.js"></script>                         <!-- Here we use 'defer',for that the script will load in the background and when the DOM will ready then the script will run -->
-    <link rel="stylesheet" href="CSS/style.css"> 
+    <script defer src="http://localhost:5500/socket.io/socket.io.js"></script>
+    <!-- We have to add this script to connect 'socket.io with the Client-side server'-->
+    <script defer src="Js/client.js"></script>
+    <!-- Here we use 'defer',for that the script will load in the background and when the DOM will ready then the script will run -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 </head>
+
 <body>
     <nav>
         <img class="logo" src="icon (4).png" alt="">
@@ -21,9 +29,10 @@
 
     <div class="send">
         <form action="#" id="send-container">
-            <input type="text" name="messageInp"  placeholder="start typing" id="messageInp">
+            <input type="text" name="messageInp" placeholder="start typing" id="messageInp">
             <button class="btn" type="submit">Send</button>
         </form>
     </div>
 </body>
+
 </html>
