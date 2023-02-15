@@ -1,6 +1,5 @@
 
 body{
-    height: 100vh;
     background-image: linear-gradient(rgb(255,255,255),rgb(109,39,233));
 }
 
@@ -37,6 +36,12 @@ h1{
     margin: 17px 2px;
     border: 2px solid black;
     border-radius: 10px;
+
+    display: flex;
+    height: auto;
+    word-wrap: break-word;
+white-space: pre-wrap;
+word-break: break-word;
 }
 
 .left {
@@ -70,11 +75,13 @@ h1{
 }
 
 .btn{
-    margin: 0 5px;
-    width: 9%;
     cursor: pointer;
     border: 2px solid black;
     border-radius: 6px;
     height: 34px;
+    text-align: center;
+    width: 75px;
+    margin-left: 10px;
+    padding: 3px;
 }
 
