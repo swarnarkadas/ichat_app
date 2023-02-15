@@ -15,11 +15,27 @@ var audio = new Audio('081723_fx-40246.mp3')
 
 
 //Function which will append(add) event info to the container
-const append =(message,position)=>{
+const append =(message,position,time)=>{
     const messageElement = document.createElement('div')
-    messageElement.innerText = message;
     messageElement.classList.add('message')
     messageElement.classList.add(position)
+
+    const messageContent = document.createElement('div');
+    messageContent.classList.add('message-content');
+    messageContent.innerText = message;
+  
+    const messageTime = document.createElement('div');
+    messageTime.classList.add('message-time');
+    messageTime.innerText = new Date().toLocaleTimeString();
+  
+    if (position === 'right') {
+        messageElement.appendChild(messageContent);
+        messageElement.appendChild(messageTime);
+    } else {
+      messageElement.appendChild(messageContent);
+      messageElement.appendChild(messageTime);
+    }
+
     messageContainer.append(messageElement)
     if(position =='left'){        // Means if I send message, then audio will not play. 
         audio.play()
@@ -47,7 +63,8 @@ socket.on('user-joined',name =>{
 
 //IF Server 'sends' a message, receive it
 socket.on('receive',data =>{
-    append(`${data.name}: ${data.message}`, 'left')
+    const currentTime = new Date().toLocaleTimeString();
+    append(`${data.name}: ${data.message}`, 'left', currentTime);
 })
 
 //If a user leaves the chat, append the info to the container
@@ -59,8 +76,8 @@ socket.on('left',name =>{
 form.addEventListener('submit', (e)=>{
     e.preventDefault();     //so the page will not reload
     const message = messageInput.value;
-    const currentTime = new Date();
-    append(`[${currentTime.toLocaleTimeString()}] You: ${message}`, 'right');
+    const currentTime = new Date().toLocaleTimeString();
+    append(`You: ${message}`, 'right',currentTime);
     // append(`You: ${message}`,'right')    //If you send any message
     socket.emit('send',message);     //notify other that you send a message
     messageInput.value =''    //after the message sent, make the menssage form' blank 
