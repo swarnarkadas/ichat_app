@@ -8,20 +8,21 @@ h1{
     font-size: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
+    color: rgba(66, 4, 4, 0.788);
 }
 
 .logo {
     display: block;
     margin: auto;
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 75px;
 }
 
 
 .container {
     max-width: 955px;
-    border: 2px solid black;
-    border-radius: 13px;
+    border: 4px solid rgba(124, 15, 15, 0.603);
+    border-radius: 30px;
     margin: auto;
     height: 60vh;
     padding: 33px;
@@ -67,8 +68,8 @@ word-break: break-word;
 
 #messageInp{
     width: 80%;
-    border: 2px solid black;
-    border-radius: 6px;
+    border: 4px solid rgba(66, 4, 4, 0.788);
+    border-radius: 10px;
     height: 34px;
     font-size: 22px;
 
@@ -76,12 +77,18 @@ word-break: break-word;
 
 .btn{
     cursor: pointer;
-    border: 2px solid black;
+    border: 3px solid rgba(66,4,4, 0.788);
     border-radius: 6px;
     height: 34px;
     text-align: center;
     width: 75px;
     margin-left: 10px;
     padding: 3px;
+    background-color:white;
+}
+
+.btn:hover{
+    background-color: rgb(8, 150, 8);
+    border-color: azure;
 }
 
