@@ -53,6 +53,7 @@ h1{
 .right {
     float: right;
     clear: both;
+    background-color: rgb(67, 201, 67);
 }
 
 #send-container{
@@ -113,7 +114,7 @@ h1{
   
   .message-time {
     font-size: 12px;
-    color: #888;
+    color: #5f5f5f;
     margin-bottom: 5px;
   }
   
