@@ -34,11 +34,12 @@ cd ichat_app
 ```
 npm install
 ```
-- Now change the current directory to nodeServer directory
+- Now change the current directory to ``server`` directory
 ```
-cd nodeServer
+cd server
 ```
-- Run ```npm install``` here also and then run ```npm run dev``` in the ```nodeServer``` folder only.
+- Run ```npm install``` to install server dependencies
+- Run ```npm run dev``` in the ```server``` to start the development server
 - Now, go back to the main folder in git bash using the ```cd ..``` command.
 - Either you can double click on the ```index.js``` file to start the website, or you can also download live-server extension of VS code and run the ```index.js``` file using it.
 - A instance of the application will appear in the browser.
