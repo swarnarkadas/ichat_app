@@ -57,7 +57,7 @@ socket.emit('new-user-joined',name)      // so here 'emit()' means we send messa
 
 //If a new user joins,receive his name from the server(socket.on of 'index.js')
 socket.on('user-joined',name =>{
-    append(`${name} joined the chat`,'right')
+    append(`${name} joined the chat`,'joined')
 })
 
 
@@ -69,7 +69,7 @@ socket.on('receive',data =>{
 
 //If a user leaves the chat, append the info to the container
 socket.on('left',name =>{
-    append(`${name} left the chat`, 'right')
+    append(`${name} left the chat`, 'leftChat')
 })
 
 //If the form gets submitted, send server the message
