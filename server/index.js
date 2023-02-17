@@ -4,7 +4,9 @@ const { Socket } = require('socket.io')
 
 const io = require('socket.io')(5500)      //port no. 8000
 
-const users = {}
+const users = {};
+let activeUsers = [];
+
 
 io.on('connection', socket => {            //'io.on' is a socket.io instance(server) which will listen many Socket connections
     socket.on('new-user-joined', name => {      //& 'socket.on' is related to any particular Socket connections, Here 'socket.on' send a event named -'new-user-joined'
