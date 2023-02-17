@@ -9,6 +9,7 @@ var socket = io('http://localhost:5500', { transports: ['websocket', 'polling', 
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp')
 const messageContainer = document.querySelector('.container')
+let activeUsers = [];
 
 // Audio that will play on recieving messages
 var audio = new Audio('/music/081723_fx-40246.mp3')
@@ -53,6 +54,24 @@ if(name==null || name=="" )
 }else{
 socket.emit('new-user-joined',name)      // so here 'emit()' means we send message or trigger the 'new-user-joined' event along with the user name' to 'socket.io' to listen it
 }
+
+//Add active users
+
+const addActiveUsers = (users) => {
+  let activeUsersContainer = document.getElementById("activeUsersContainer");
+  users.forEach((user) => {
+    const userElement = document.createElement("li");
+    userElement.className="activeUsername"
+    userElement.innerText = user;
+    activeUsersContainer.appendChild(userElement);
+  })
+};
+
+socket.on("activeUsers", (users) => {
+  activeUsers = users;
+  console.log(activeUsers);
+  addActiveUsers(activeUsers);
+});
 
 
 //If a new user joins,receive his name from the server(socket.on of 'index.js')
