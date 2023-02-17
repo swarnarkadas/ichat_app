@@ -11,7 +11,7 @@ const messageInput = document.getElementById('messageInp')
 const messageContainer = document.querySelector('.container')
 
 // Audio that will play on recieving messages
-var audio = new Audio('081723_fx-40246.mp3')
+var audio = new Audio('/music/081723_fx-40246.mp3')
 
 
 //Function which will append(add) event info to the container
