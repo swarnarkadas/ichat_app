@@ -4,13 +4,17 @@ const { Socket } = require('socket.io')
 
 const io = require('socket.io')(5500)      //port no. 8000
 
-const users = {}
+const users = {};
+let activeUsers = [];
+
 
 io.on('connection', socket => {            //'io.on' is a socket.io instance(server) which will listen many Socket connections
     socket.on('new-user-joined', name => {      //& 'socket.on' is related to any particular Socket connections, Here 'socket.on' send a event named -'new-user-joined'
         // console.log("New User", name)
         users[socket.id] = name;             //so,whenever 'socket.on' listen the 'new-user-joined' event, then we will set the 'name' in the 'users'
         socket.broadcast.emit('user-joined',name)     //So, when any 'new-users-joined' the chat,then 'socket.on' broadcast it to others as 'user-joinde' with his 'name'
+        activeUsers.push(name);
+        socket.emit("activeUsers", activeUsers);
     })
 
     socket.on('send',message =>{               //if 'socket.on' listen the 'send' event means if anyone send' any message
@@ -21,5 +25,6 @@ io.on('connection', socket => {            //'io.on' is a socket.io instance(ser
     socket.on('disconnect',message =>{               //if 'socket.on' listen the 'disconnect' event means if anyone left from the chat
         socket.broadcast.emit('left',users[socket.id])  //if anyone left the chat or message, then broadcast others that users name who left the chat.
         delete users[socket.id];             //& after that user left the Chat, delete that user from 'users' array
+        socket.emit("activeUsers", users);
     });
 })
