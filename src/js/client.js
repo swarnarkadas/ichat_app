@@ -1,9 +1,8 @@
 
 // const socket = io('http://localhost:5500');
 
-var socket = io('http://localhost:5500', { transports: ['websocket', 'polling', 'flashsocket'] });   
-//we made connection with server side Socket.io to Client
-// Have to add this part to avoid -'No 'Access-Control-Allow-Origin' header is present' error
+var socket = io('http://localhost:5500', { transports: ['websocket', 'polling', 'flashsocket'] });   //we made connection with server side Socket.io to Client
+                                          // Have to add this part to avoid -'No 'Access-Control-Allow-Origin' header is present' error
 
                                         
 //Get DOM elements in respective Js variables                                          
@@ -12,7 +11,7 @@ const messageInput = document.getElementById('messageInp')
 const messageContainer = document.querySelector('.container')
 
 // Audio that will play on recieving messages
-var audio = new Audio('../assets/sounds/notification.mp3')
+var audio = new Audio('/music/081723_fx-40246.mp3')
 
 
 //Function which will append(add) event info to the container
@@ -58,7 +57,7 @@ socket.emit('new-user-joined',name)      // so here 'emit()' means we send messa
 
 //If a new user joins,receive his name from the server(socket.on of 'index.js')
 socket.on('user-joined',name =>{
-    append(`${name} joined the chat`,'right')
+    append(`${name} joined the chat`,'joined')
 })
 
 
@@ -70,7 +69,7 @@ socket.on('receive',data =>{
 
 //If a user leaves the chat, append the info to the container
 socket.on('left',name =>{
-    append(`${name} left the chat`, 'right')
+    append(`${name} left the chat`, 'leftChat')
 })
 
 //If the form gets submitted, send server the message

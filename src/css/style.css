@@ -55,6 +55,17 @@ h1{
     clear: both;
     background-color: rgb(67, 201, 67);
 }
+.joined{
+  margin: auto;
+  clear: both;
+  background-color: rgb(255, 218, 34);
+}
+
+.leftChat{
+  margin: auto;
+  clear: both;
+  background-color: rgb(222, 123, 42);
+}
 
 #send-container{
     display: block;
