@@ -1,6 +1,6 @@
 
 body{
-    background-image: linear-gradient(rgb(201, 52, 52),rgb(217, 212, 227));
+    background-image: linear-gradient(rgb(96, 203, 215),rgb(109, 220, 18));
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
@@ -10,7 +10,7 @@ h1{
     margin-top: 12px;
     font-size: 30px;
     
-    color: rgba(221, 47, 178, 0.788);
+    color: rgba(52, 18, 206, 0.788);
 }
 
 .logo {
@@ -35,7 +35,7 @@ h1{
 }
 
 .message {
-    background-color: rgb(232, 220, 220); 
+    background-color: rgb(49, 14, 154); 
     width: 24%;
     padding: 10px;
     margin: 17px 2px;
