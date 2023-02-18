@@ -23,7 +23,7 @@ h1{
 
 .container {
     max-width: 955px;
-    border: 4px solid rgba(199, 9, 9, 0.603); *
+    border: 4px solid rgba(199, 9, 9, 0.603);
     
     border-radius: 30px;
     margin: auto;
@@ -62,7 +62,7 @@ h1{
 .joined{
   margin: auto;
   clear: both;
-   background-color: rgb(212, 179, 15); *
+   background-color: rgb(212, 179, 15); 
 }
 
 .leftChat{
@@ -89,6 +89,14 @@ h1{
     height: 34px;
     font-size: 22px;
 
+}
+
+#userId{
+  width: 20%;
+  border: 4px solid rgba(66, 4, 4, 0.788);
+  border-radius: 10px;
+  height: 34px;
+  font-size: 0.9em;
 }
 
 .btn{
