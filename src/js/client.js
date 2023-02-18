@@ -7,6 +7,7 @@ var socket = io('http://localhost:5500', { transports: ['websocket', 'polling', 
                                         
 //Get DOM elements in respective Js variables                                          
 const form = document.getElementById('send-container');
+const id = document.getElementById('userId');
 const messageInput = document.getElementById('messageInp')
 const messageContainer = document.querySelector('.container')
 let activeUsers = [];
@@ -51,9 +52,11 @@ if(name==null || name=="" )
 {
     alert("Please enter valid name.");
     window.location.reload();
-}else{
-socket.emit('new-user-joined',name)      // so here 'emit()' means we send message or trigger the 'new-user-joined' event along with the user name' to 'socket.io' to listen it
 }
+socket.on('connect', () => {
+  socket.emit('new-user-joined',name,socket.id)
+  append(`You joined the chat.\nUser Id is : \n${socket.id}`,'right')
+});
 
 //Add active users
 
@@ -75,8 +78,8 @@ socket.on("activeUsers", (users) => {
 
 
 //If a new user joins,receive his name from the server(socket.on of 'index.js')
-socket.on('user-joined',name =>{
-    append(`${name} joined the chat`,'joined')
+socket.on('user-joined',(name,userId) =>{
+  append(`${name} joined the chat.\nUser Id is : \n${userId}`,'right')
 })
 
 
@@ -91,13 +94,31 @@ socket.on('left',name =>{
     append(`${name} left the chat`, 'leftChat')
 })
 
+//If the user gets an encrypted message, receive it
+socket.on('encrypted-chat-receive',(data,name) =>{
+  const currentTime = new Date().toLocaleTimeString();
+  append(`This is a private message :\n\n${data.name}: ${data.message}`, 'left', currentTime);
+})
+
 //If the form gets submitted, send server the message
 form.addEventListener('submit', (e)=>{
-    e.preventDefault();     //so the page will not reload
-    const message = messageInput.value;
-    const currentTime = new Date().toLocaleTimeString();
-    append(`You: ${message}`, 'right',currentTime);
-    // append(`You: ${message}`,'right')    //If you send any message
-    socket.emit('send',message);     //notify other that you send a message
-    messageInput.value =''    //after the message sent, make the menssage form' blank 
+  e.preventDefault();     //so the page will not reload
+  const currentTime = new Date().toLocaleTimeString();
+  const message = messageInput.value;
+  console.log(id.value)
+  if(id.value==null || id.value==""){
+      console.log(message);
+      append(`You: ${message}`, 'right',currentTime);
+      // append(`You: ${message}`,'right')    //If you send any message
+      socket.emit('send',message);     //notify other that you send a message
+      messageInput.value =''    //after the message sent, make the menssage form' blank 
+  }   
+
+  else{
+      const userIdValue = id.value;
+      console.log(message,userIdValue);
+      append(`This is a private message :\n\nYou: ${message}`, 'right',currentTime);
+      socket.emit('encrypted-chat-send',message,userIdValue);     //notify other that you send a message
+      messageInput.value =''    //after the message sent, make the menssage form' blank
+  }
 })
