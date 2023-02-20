@@ -13,7 +13,7 @@ const messageContainer = document.querySelector('.container')
 let activeUsers = [];
 
 // Audio that will play on recieving messages
-var audio = new Audio('/music/081723_fx-40246.mp3')
+const audio = new Audio('../assets/sounds/notification.mp3')
 
 
 //Function which will append(add) event info to the container
@@ -30,16 +30,16 @@ const append =(message,position,time)=>{
     messageTime.classList.add('message-time');
     messageTime.innerText = new Date().toLocaleTimeString();
   
-    if (position === 'right') {
+    // if (position === 'right') {
         messageElement.appendChild(messageContent);
         messageElement.appendChild(messageTime);
-    } else {
-      messageElement.appendChild(messageContent);
-      messageElement.appendChild(messageTime);
-    }
+    // } else {
+    //   messageElement.appendChild(messageContent);
+    //   messageElement.appendChild(messageTime);
+    // }
 
     messageContainer.append(messageElement)
-    if(position =='left'){        // Means if I send message, then audio will not play. 
+    if(position =="left"){        // Means if I send message, then audio will not play. 
         audio.play()
     }
 }
