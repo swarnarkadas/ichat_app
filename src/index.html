@@ -9,11 +9,18 @@
     <script defer src="http://localhost:5500/socket.io/socket.io.js"></script>     <!-- We have to add this script to connect 'socket.io with the Client-side server'-->
      <script defer src="./js/client.js"></script>                         <!-- Here we use 'defer',for that the script will load in the background and when the DOM will ready then the script will run -->
     <link rel="stylesheet" href="./css/style.css"> 
+    <link rel="stylesheet" href="./css/theme.css">
 </head>
 <body>
     <nav>
         <img class="logo" src="../assets/appIcon.png" alt="">
         <h1>Welcome to MyChat App</h1>
+        <div id="darkMode">
+            <label class="contner">DARKMODE
+                <input type="checkbox" >
+                <span class="checkmark"></span>
+              </label>
+        </div>
     </nav>
     <div class="chatBody">
     <div id="activeUsersContainer">
@@ -32,5 +39,6 @@
             <button class="btn" type="submit">Send</button>
         </form>
     </div>
+    <script src="./js/theme.js"></script>
 </body>
 </html>
