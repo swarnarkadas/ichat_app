@@ -14,7 +14,8 @@ io.on('connection', socket => {            //'io.on' is a socket.io instance(ser
         users[socket.id] = name;             //so,whenever 'socket.on' listen the 'new-user-joined' event, then we will set the 'name' in the 'users'
         socket.broadcast.emit('user-joined',name,socketId)     //So, when any 'new-users-joined' the chat,then 'socket.on' broadcast it to others as 'user-joinde' with his 'name'
         activeUsers.push(name);
-        socket.emit("activeUsers", activeUsers);
+        // console.log(activeUsers);
+        socket.broadcast.emit('activeUsers', activeUsers);
     })
 
     socket.on('send',message =>{               //if 'socket.on' listen the 'send' event means if anyone send' any message
