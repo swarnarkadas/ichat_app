@@ -14,8 +14,8 @@ io.on('connection', socket => {            //'io.on' is a socket.io instance(ser
         users[socket.id] = name;             //so,whenever 'socket.on' listen the 'new-user-joined' event, then we will set the 'name' in the 'users'
         socket.broadcast.emit('user-joined',name,socketId)     //So, when any 'new-users-joined' the chat,then 'socket.on' broadcast it to others as 'user-joinde' with his 'name'
         activeUsers.push(name);
-        // console.log(activeUsers);
-        socket.emit('activeUsers', activeUsers);
+        socket.emit("toCurrUserScreen", activeUsers);
+        socket.broadcast.emit('activeUsers', activeUsers);
     })
 
     socket.on('send',message =>{               //if 'socket.on' listen the 'send' event means if anyone send' any message
@@ -28,7 +28,10 @@ io.on('connection', socket => {            //'io.on' is a socket.io instance(ser
 
     socket.on('disconnect',message =>{               //if 'socket.on' listen the 'disconnect' event means if anyone left from the chat
         socket.broadcast.emit('left',users[socket.id])  //if anyone left the chat or message, then broadcast others that users name who left the chat.
+        // socket.emit("activeUsers", users);
+        activeUsers = activeUsers.filter((user) => user !== users[socket.id]);
+        // console.log(activeUsers);
         delete users[socket.id];             //& after that user left the Chat, delete that user from 'users' array
-        socket.emit("activeUsers", users);
+        socket.broadcast.emit("activeUsers", activeUsers);
     });
 })

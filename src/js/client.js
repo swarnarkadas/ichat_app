@@ -10,7 +10,6 @@ const form = document.getElementById('send-container');
 const id = document.getElementById('userId');
 const messageInput = document.getElementById('messageInp')
 const messageContainer = document.querySelector('.container')
-let activeUsers = [];
 
 // Audio that will play on recieving messages
 const audio = new Audio('../assets/sounds/notification.mp3')
@@ -57,9 +56,10 @@ socket.on('connect', () => {
   append(`You joined the chat.\nUser Id is : \n${socket.id}`,'right')
 });
 
+//If a new user joins,receive his name from the server(socket.on of 'index.js')
+
 socket.on('toCurrUserScreen', (users) => {
-  console.log("hekllo guiz");
-  console.log(users);
+  // console.log(users);
   let activeUsersContainer = document.getElementById("activeUsersContainer");
   users.forEach((user) => {
     const userElement = document.createElement("li");
@@ -72,7 +72,7 @@ socket.on('toCurrUserScreen', (users) => {
 //Add active users
 
 const addActiveUsers = (users) => {
-  console.log(users);
+  // console.log(users);
   let activeUsersContainer = document.getElementById("activeUsersContainer");
   let prevList=activeUsersContainer.querySelectorAll('li');
   prevList.forEach((user) => {
@@ -86,6 +86,8 @@ const addActiveUsers = (users) => {
     activeUsersContainer.appendChild(userElement);
   })
 };
+
+//Displaying active users to all users' screens except the current user
 
 socket.on("activeUsers", (users) => {
   addActiveUsers(users);
