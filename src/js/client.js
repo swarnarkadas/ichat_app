@@ -10,7 +10,6 @@ const form = document.getElementById('send-container');
 const id = document.getElementById('userId');
 const messageInput = document.getElementById('messageInp')
 const messageContainer = document.querySelector('.container')
-let activeUsers = [];
 
 // Audio that will play on recieving messages
 const audio = new Audio('../assets/sounds/notification.mp3')
@@ -46,10 +45,9 @@ const append =(message,position,time)=>{
 
 
 //Ask new user for his/her name and let the server know
-let name="Enter your name here";
+let name="Enter your name here"
  name = prompt("Enter Your Name To Join");
-if(name==null || name=="" )
-{
+if(name==null || name=="" ){
     alert("Please enter valid name.");
     window.location.reload();
 }
@@ -58,22 +56,41 @@ socket.on('connect', () => {
   append(`You joined the chat.\nUser Id is : \n${socket.id}`,'right')
 });
 
-//Add active users
+//If a new user joins,receive his name from the server(socket.on of 'index.js')
 
-const addActiveUsers = (users) => {
+socket.on('toCurrUserScreen', (users) => {
+  // console.log(users);
   let activeUsersContainer = document.getElementById("activeUsersContainer");
   users.forEach((user) => {
     const userElement = document.createElement("li");
-    userElement.className="activeUsername"
+    userElement.className="activeUserName"
+    userElement.innerText = user;
+    activeUsersContainer.appendChild(userElement);
+  })
+});
+
+//Add active users
+
+const addActiveUsers = (users) => {
+  // console.log(users);
+  let activeUsersContainer = document.getElementById("activeUsersContainer");
+  let prevList=activeUsersContainer.querySelectorAll('li');
+  prevList.forEach((user) => {
+    activeUsersContainer.removeChild(user);
+  });
+
+  users.forEach((user) => {
+    const userElement = document.createElement("li");
+    userElement.className="activeUserName"
     userElement.innerText = user;
     activeUsersContainer.appendChild(userElement);
   })
 };
 
+//Displaying active users to all users' screens except the current user
+
 socket.on("activeUsers", (users) => {
-  activeUsers = users;
-  console.log(activeUsers);
-  addActiveUsers(activeUsers);
+  addActiveUsers(users);
 });
 
 
@@ -109,7 +126,7 @@ form.addEventListener('submit', (e)=>{
   if(id.value==null || id.value==""){
       console.log(message);
       append(`You: ${message}`, 'right',currentTime);
-      // append(`You: ${message}`,'right')    //If you send any message
+      // append(`You: ${message}`,'right')    //If you send any message.
       socket.emit('send',message);     //notify other that you send a message
       messageInput.value =''    //after the message sent, make the menssage form' blank 
   }   
