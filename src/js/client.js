@@ -63,8 +63,9 @@ socket.on('toCurrUserScreen', (users) => {
   let activeUsersContainer = document.getElementById("activeUsersContainer");
   users.forEach((user) => {
     const userElement = document.createElement("li");
-    userElement.className="activeUserName"
+    userElement.className="activeUserName ml-2 text-sm font-semibold"
     userElement.innerText = user;
+    userElement.style.listStyle = "none"
     activeUsersContainer.appendChild(userElement);
   })
 });
@@ -83,6 +84,7 @@ const addActiveUsers = (users) => {
     const userElement = document.createElement("li");
     userElement.className="activeUserName"
     userElement.innerText = user;
+    userElement.style.listStyle = "none"
     activeUsersContainer.appendChild(userElement);
   })
 };
