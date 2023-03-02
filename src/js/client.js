@@ -102,6 +102,7 @@ socket.on('user-joined',(name,userId) =>{
 
 //IF Server 'sends' a message, receive it
 socket.on('receive',data =>{
+   feedback.innerHTML="";
     const currentTime = new Date().toLocaleTimeString();
     append(`${data.name}: ${data.message}`, 'left', currentTime);
 })
@@ -139,3 +140,11 @@ form.addEventListener('submit', (e)=>{
       messageInput.value =''    //after the message sent, make the menssage form' blank
   }
 })
+
+messageInp.addEventListener('keypress',function(){
+  socket.emit('typing',name);
+});
+
+socket.on('typing',function(data){
+  feedback.innerHTML='<p><em>'+data+' is typing a message...</em></p>';
+});
