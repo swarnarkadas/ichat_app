@@ -22,6 +22,10 @@ io.on('connection', socket => {            //'io.on' is a socket.io instance(ser
         socket.broadcast.emit('receive', {message : message, name: users[socket.id]})  //if anyone send message, then broadcast others the received message along with the senders name.
     })
 
+    socket.on('typing',function(data){
+        socket.broadcast.emit('typing',data);
+    });
+
     socket.on('encrypted-chat-send', (message,userIdValue) =>{               //if 'socket.on' listen the 'send' event means if anyone send' any message
         socket.to(userIdValue).emit('encrypted-chat-receive', {message : message, name: users[socket.id]})  //if anyone send message, then broadcast others the received message along with the senders name.
     });
