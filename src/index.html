@@ -1,36 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="icon" href="../assets/favicon.ico">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iChat - Realtime Node Socket.io Chat App</title>
-    <script defer src="http://localhost:5500/socket.io/socket.io.js"></script>     <!-- We have to add this script to connect 'socket.io with the Client-side server'-->
-     <script defer src="./js/client.js"></script>                         <!-- Here we use 'defer',for that the script will load in the background and when the DOM will ready then the script will run -->
-    <link rel="stylesheet" href="./css/style.css"> 
+  <link rel="icon" href="../assets/favicon.ico">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iChat - Realtime Node Socket.io Chat App</title>
+  <script defer src="http://localhost:5500/socket.io/socket.io.js"></script>
+  <!-- We have to add this script to connect 'socket.io with the Client-side server' -->
+  <script defer src="./js/client.js"></script>
+  <!-- Here we use 'defer',for that the script will load in the background and when the DOM will ready then the script will run -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/theme.css">
+  <link rel="stylesheet" href="./dist/output.css">
 </head>
+
 <body>
-    <nav>
-        <img class="logo" src="../assets/appIcon.png" alt="">
-        <h1>Welcome to MyChat App</h1>
-    </nav>
-    <div class="chatBody">
-    <div id="activeUsersContainer">
-        <h2>Active Users:</h2>
-    </div>
-    <div class="container">
-        <!-- <div class="message right">Harry:Hey how are you?</div>
-        <div class="message left">Rohan:BHai I am fine.How about you?</div> -->
-    </div>
-    </div>
+
+  <div class="flex h-screen antialiased text-gray-800">
+    <div class="flex flex-row h-full w-full overflow-x-hidden">
+      <div class="flex flex-col py-8 pl-6 pr-2 w-64 bg-white flex-shrink-0">
+        <div class="flex flex-row items-center justify-center h-12 w-full">
+          <div class="flex items-center justify-center rounded-2xl text-indigo-700 bg-indigo-100 h-10 w-10">
+            <img class="w-6 h-6" viewBox="0 0 24 24" src="../assets/favicon.ico">
+          </div>
+          <div class="ml-2 font-bold text-2xl">iChat</div>
+        </div>
+        <div class="flex flex-col items-center bg-indigo-100 border border-gray-200 mt-4 w-full py-6 px-4 rounded-lg">
+          <!-- <div id="darkMode">
+        <label class="contner">DARKMODE
+            <input type="checkbox" >
+            <span class="checkmark"></span>
+          </label>
+    </div> -->
     <div id="feedback"></div>
-    <div class="send">
-        <form action="#" id="send-container">
-            <input type="text" name="userId" placeholder="User id you wanna connect" id="userId">
-            <input type="text" name="messageInp" placeholder="start typing" id="messageInp">
-            <button class="btn" type="submit">Send</button>
-        </form>
+    <h4 class="font-bold text-base py-3">Private chat</h4>
+          <input type="text" name="userId" placeholder="Enter User ID to chat" id="userId">
+        </div>
+        <div class="flex flex-col mt-8 chatBody">
+          <div class="flex flex-row items-center justify-between text-base">
+            <h3 class="font-bold text-" id="activeUsersContainer">Active Users : </h3>
+          </div>
+
+        </div>
+      </div>
+      <div class="flex flex-col flex-auto h-full p-6 ">
+        <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-200 h-full p-4 ">
+          <div class="flex flex-col h-full overflow-x-auto mb-4">
+            <div class="flex flex-col h-full">
+              <div class=" container rounded"></div>
+            </div>
+          </div>
+          <div class="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
+            <div>
+              <button class="flex items-center justify-center text-gray-400 hover:text-gray-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13">
+                  </path>
+                </svg>
+              </button>
+            </div>
+            <div class="flex-grow ml-4 send">
+              <div class="flex relative w-full">
+                <form action="#" id="send-container">
+                  <input type="text"
+                    class="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10"
+                    name="messageInp" id="messageInp" />
+                  <div class="ml-4">
+                    <button
+                      class="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0">
+                      <span>Send</span>
+                      <span class="ml-2">
+                        <svg class="w-4 h-4 transform rotate-45 -mt-px" fill="none" stroke="currentColor"
+                          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                      </span>
+                    </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
+  </div>
+  </div>
 </body>
+
 </html>

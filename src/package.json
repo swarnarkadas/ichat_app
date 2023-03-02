@@ -1,0 +1,15 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch-css": "npx tailwindcss -i ./css/input.css -o ./dist/output.css --watch"
+  },
+  "keywords": [],
+  "author": "pooranjoyb",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.2.7"
+  }
+}
