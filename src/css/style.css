@@ -34,12 +34,12 @@ h1{
     width: 24%;
     padding: 10px;
     margin: 17px 2px;
-    border-radius: 1rem;
     display: flex;
     height: auto;
     word-wrap: break-word;
     white-space: pre-wrap;
     word-break: break-word;
+    margin-right: 1rem;
 }
 
 .left {
@@ -48,21 +48,34 @@ h1{
 }
 
 .right {
-    float: right;
-    clear: both;
-    padding: 2px 4px 2px 4px;
-     background-image: linear-gradient(#ddd6f3, #faaca8);
-     box-shadow: 3px #888;
+  float: right;
+  clear: both;
+  padding: 2px 4px 2px 4px;
+  background-image: linear-gradient(#ddd6f3, #faaca8);
+  box-shadow: 3px #888;
+}
+
+.message.right {
+border-top-right-radius: 2rem;
+border-top-left-radius: 2rem;
+border-bottom-left-radius:2rem;
+}
+
+.message.left {
+border-top-right-radius: 2rem;
+border-top-left-radius: 2rem;
+border-bottom-right-radius:2rem;
 }
 .joined{
   margin: auto;
   clear: both;
-   background-color: rgb(212, 179, 15); 
+  background-color: rgb(212, 179, 15); 
 }
 
 .leftChat{
   margin: auto;
   clear: both;
+  border-radius: 2rem;
    background-image: linear-gradient(#fd5a39 , #e865a0); 
 }
 
