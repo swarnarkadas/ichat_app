@@ -2,7 +2,7 @@
     font-size: 11px;
 }
 
-.message.right, .message.left{
+.message.right, .message.left, .message.leftChat{
     width: 10rem;
 }
 
