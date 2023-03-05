@@ -45,11 +45,13 @@ h1{
 .left {
     float: left;
     clear: both;
+    width: 20rem;
 }
 
 .right {
   float: right;
   clear: both;
+  width: 20rem;
   padding: 2px 4px 2px 4px;
   background-image: linear-gradient(#ddd6f3, #faaca8);
   box-shadow: 3px #888;

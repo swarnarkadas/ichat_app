@@ -1,0 +1,15 @@
+.message-content{
+    font-size: 11px;
+}
+
+.message.right, .message.left, .message.leftChat{
+    width: 10rem;
+}
+
+#sendbtn{
+    display: none;
+}
+
+#messageInp{
+    font-size: 15px;
+}
