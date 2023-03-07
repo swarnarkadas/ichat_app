@@ -91,3 +91,29 @@ git push -u origin <new-branch-name>
 <h1>User 2: Ray</h1>
 
 ![Screenshot (258)](https://user-images.githubusercontent.com/84660268/217365748-81432018-3588-4512-8a28-365e9bae3d33.png)
+
+
+
+## Project Admin
+
+<table>
+<tr>
+<td align="center"><a href="https://github.com/swarnarkadas"><img src="https://avatars.githubusercontent.com/u/84660268?v=4" width=150px height=150px /></a></br> <h4 style="color:red;">Swarnarka Das</h4>
+<a target="_blank"href="https://www.linkedin.com/in/swarnarkadas"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+ <a href="mailto:sd2425@it.jgec.ac.in"><img src="https://img.shields.io/badge/gmail-%23D14836.svg?&style=for-the-badge&logo=gmail&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+   </td>
+
+</tr>
+</table>
+
+## Project Contributors
+
+<a href="https://github.com/swarnarkadas/ichat_app/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=swarnarkadas/ichat_app" />
+</a>
+
+</br>
+<p align = "center">
+Show some ❤️&nbsp; by giving <img src="https://imgur.com/o7ncZFp.jpg" height=25px width=25px> to this repo
+</p>
+
