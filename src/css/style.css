@@ -160,3 +160,52 @@ border-bottom-right-radius:2rem;
   justify-content: center;
   align-items: center;
 }
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.card {
+  margin:210px 360px 210px 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 28%;
+  max-width: 425px;
+  background-color: #FFF;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 10px 20px 0 rgba(153, 153, 153, 0.25);
+          box-shadow: 0 10px 20px 0 rgba(153, 153, 153, 0.25);
+  padding: .40rem;
+}
+
+.card-image {
+  border-radius: 8px;
+  overflow: hidden;
+  padding-bottom: 33%;
+  background-repeat: no-repeat;
+  background-size: 150%;
+  background-position: 0 5%;
+  position: relative;
+}
+
+.card-heading {
+  position: absolute;
+  left: 10%;
+  top: 15%;
+  right: 10%;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #735400;
+  line-height: 1.222;
+}
+
+
+
+
+
