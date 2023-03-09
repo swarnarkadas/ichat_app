@@ -1005,6 +1005,10 @@ video {
     width: 100%;
   }
 
+  .mobile\:flex-row {
+    flex-direction: row;
+  }
+
   .mobile\:flex-col {
     flex-direction: column;
   }
