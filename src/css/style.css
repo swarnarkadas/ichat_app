@@ -104,6 +104,10 @@ border-bottom-right-radius:2rem;
   font-size: 0.9em;
 }
 
+.mobile-menu{
+  transition: all 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
 .btn{
     cursor: pointer;
     border: 3px solid rgba(66,4,4, 0.788);

@@ -18,23 +18,67 @@
 </head>
 
 <body>
+  <header class="header sticky top-0 bg-white shadow-md px-8 py-02">
+    <div class="flex items-center justify-between">
 
+      <!-- logo -->
+      <h1 class="w-3/12">
+        <div class="flex flex-row  h-12 w-12">
+            <img class="h-10 w-12 mobile:h-8 mobile:w-8 mobile:my-1" src="../assets/favicon.ico">
+          <div class="ml-2 py-1 font-bold text-2xl text-indigo-700">iChat</div>
+        </div>
+      </h1>
+      
+      <!-- navigation -->
+    <nav class="nav font-semibold text-gray-900 font-bold mobile:hidden">
+        <ul class="flex items-center">
+          <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer active">
+            <a href="#">Home</a>
+          </li>
+          <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+            <a href="#">Private Chat</a>
+          </li>
+          <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+            <a href="#">About Us</a>
+          </li>
+          <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      
+      <!-- buttons --->
+      <div class="w-3/12 flex justify-end mobile:hidden">
+        <a class="inline-block ml-auto mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="#">Sign In</a>
+        <a class=" inline-block py-2 px-6 bg-indigo-600 hover:bg-indigo-500 text-sm text-white font-bold rounded-xl transition duration-200" href="#">Sign up</a>
+      </div>
+      
+    <!-- Mobile Toggler -->
+    <div class="hidden mobile:flex mobile:flex-row ">
+      <button class="mobile-menu-btn navbar-burger flex items-center text-blue-600 p-3">
+        <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <title>Mobile Toggler</title>
+					<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+				</svg>
+			</button>
+    </div>
+  </div>
+    
+    <!-- Mobile-Menu  -->
+    
+    <div class="hidden mobile-menu ">
+      <a href="#" class="block p-4 font-bold border-b-2 border-blue-500 border-opacity-0 cursor-pointer active">Home</a>
+      <a href="#" class="block p-4 font-bold border-b-2 border-blue-500 border-opacity-0 cursor-pointer ">Private Chat</a>
+      <a href="#" class="block p-4 font-bold border-b-2 border-blue-500 border-opacity-0 cursor-pointer "> About Us</a>
+      <a href="#" class="block p-4 font-bold border-b-2 border-blue-500 border-opacity-0 cursor-pointer">Contact</a>
+    </div>
+    
+
+</header>
   <div class="flex h-screen antialiased text-gray-800">
     <div class="flex flex-row  h-full w-full overflow-x-hidden mobile:flex-col">
       <div class="flex flex-col py-8 pl-6 pr-2 w-64 bg-white flex-shrink-0 mobile:w-full">
-        <div class="flex flex-row items-center justify-center h-12 w-full">
-          <div class="flex items-center justify-center rounded-2xl text-indigo-700 bg-indigo-100 h-10 w-10">
-            <img class="w-6 h-6" viewBox="0 0 24 24" src="../assets/favicon.ico">
-          </div>
-          <div class="ml-2 font-bold text-2xl">iChat</div>
-        </div>
         <div class="flex flex-col items-center bg-indigo-100 border border-gray-200 mt-4 w-full py-6 px-4 rounded-lg">
-          <!-- <div id="darkMode">
-        <label class="contner">DARKMODE
-            <input type="checkbox" >
-            <span class="checkmark"></span>
-          </label>
-    </div> -->
     <div id="feedback"></div>
     <h4 class="font-bold text-base py-3">Private chat</h4>
           <input type="text" name="userId" placeholder="Enter User ID to chat" id="userId">
@@ -72,7 +116,7 @@
                     name="messageInp" id="messageInp" />
                   <div class="ml-4">
                     <button
-                      class="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0">
+                      class="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0 font-bold">
                       <span id="sendbtn">Send</span>
                       <span class="ml-2">
                         <svg class="w-4 h-4 transform rotate-45 -mt-px" fill="none" stroke="currentColor"
@@ -94,5 +138,16 @@
   </div>
   </div>
 </body>
+<script>
+  // Hamburger Menu
 
+  const btn = document.querySelector('button.mobile-menu-btn');
+  const menu = document.querySelector('.mobile-menu')
+
+  // Adding event Listeners
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle("hidden");
+  })
+  </script>
 </html>
