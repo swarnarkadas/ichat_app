@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" href="../assets/favicon.ico">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iChat - Realtime Node Socket.io Chat App</title>
+  <script defer src="http://localhost:5500/socket.io/socket.io.js"></script>
+  <!-- We have to add this script to connect 'socket.io with the Client-side server' -->
+  <script defer src="./js/client.js"></script>
+  <!-- Here we use 'defer',for that the script will load in the background and when the DOM will ready then the script will run -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/about_us.css">
+  <link rel="stylesheet" href="./css/theme.css">
+  <link rel="stylesheet" href="./dist/output.css">
+  <link rel="stylesheet" href="./css/handset.css" media="screen and (max-width: 600px)">
+</head>
+
+<body>
+  <header class="header sticky top-0 bg-white shadow-md px-8 py-02">
+    <div class="flex items-center justify-between">
+
+      <!-- logo -->
+      <h1 class="w-3/12">
+        <div class="flex flex-row  h-12 w-12">
+          <img class="h-10 w-12 mobile:h-8 mobile:w-8 mobile:my-1" src="../assets/favicon.ico">
+          <div class="ml-2 py-1 font-bold text-2xl text-indigo-700">iChat</div>
+        </div>
+      </h1>
+
+      <!-- navigation -->
+      <nav class="nav font-semibold text-gray-900 font-bold mobile:hidden">
+        <ul class="flex items-center">
+          <li
+            class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer active">
+            <a href="index.html">Home</a>
+          </li>
+          <li
+            class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+            <a href="#">Private Chat</a>
+          </li>
+          <li
+            class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+            <a href="about_us.html">About Us</a>
+          </li>
+          <li
+            class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- buttons --->
+      <div class="w-3/12 flex justify-end mobile:hidden">
+        <a class="inline-block ml-auto mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
+          href="#">Sign In</a>
+        <a class=" inline-block py-2 px-6 bg-indigo-600 hover:bg-indigo-500 text-sm text-white font-bold rounded-xl transition duration-200"
+          href="#">Sign up</a>
+      </div>
+
+      <!-- Mobile Toggler -->
+      <div class="hidden mobile:flex mobile:flex-row ">
+        <button class="mobile-menu-btn navbar-burger flex items-center text-blue-600 p-3">
+          <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <title>Mobile Toggler</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile-Menu  -->
+
+    <div class="hidden mobile-menu ">
+      <a href="index.html" class="block p-4 font-bold border-b-2 border-blue-500 border-opacity-0 cursor-pointer active">Home</a>
+      <a href="#" class="block p-4 font-bold border-b-2 border-blue-500 border-opacity-0 cursor-pointer ">Private
+        Chat</a>
+      <a href="about_us.html" class="block p-4 font-bold border-b-2 border-blue-500 border-opacity-0 cursor-pointer "> About Us</a>
+      <a href="#" class="block p-4 font-bold border-b-2 border-blue-500 border-opacity-0 cursor-pointer">Contact</a>
+    </div>
+
+
+  </header>
+
+  <body class="body-tag">
+    <h3 class="title-name">About us</h3>
+    <h6 style="display: flex; justify-content: flex-start; padding: 15px;">IChat is a RealTime Chat Application</h6>
+    <h2 class="subtopic">Overview</h2>
+    <h6 style="display: flex; justify-content: flex-start; padding: 15px;">It is a scalable Realtime Chatting
+      Application that provides an interface for multiple user chatting at the same time.</h6>
+    <h2 class="subtopic">Technologies used</h2>
+    <ul class="list-things">
+      <h6 style="display: flex; justify-content: flex-start; padding: 15px;">&#x2022; FrontEnd - HTML, CSS</h6>
+      <h6 style="display: flex; justify-content: flex-start; padding: 15px;">&#x2022; BackEnd - JavaScript, Node.js</h6>
+      <h6 style="display: flex; justify-content: flex-start; padding: 15px;">&#x2022; Used Socket.io module for a two-way
+        connection between client and server.</h6>
+    </ul>
+    <h2 class="subtopic">Website's structure & features</h2>
+    <h6 style="display: flex; justify-content: flex-start; padding: 15px;">
+      &#x2022; FrontEnd includes a navigation bar, Chat window and a form submit button for sending the messages.</h6>
+    <h6 style="display: flex; justify-content: flex-start; padding: 15px;">
+      &#x2022; HTML has been used for preparing the structure of application.</h6>
+    <h6 style="display: flex; justify-content: flex-start; padding: 15px;">
+      &#x2022; CSS has been used for styling the application.</h6>
+    <h6 style="display: flex; justify-content: flex-start; padding: 15px;">
+      &#x2022; Added Client sided JavaScript for the purpose of playing with DOM elements.</h6>
+    <h6 style="display: flex; justify-content: flex-start; padding: 15px;">
+      &#x2022; First of all stored all the DOM elements in a respectives JS variable.</h6>
+    <h6 style="display: flex; justify-content: flex-start; padding: 15px;">
+      &#x2022; Used Audio file (ting.mp3) which gives notification on receiving the messages.</h6>
+    <h6 style="display: flex; justify-content: flex-start; padding: 15px;">
+      &#x2022; Everytime a new user tries to join, first of all ask his/her name and let the server and already connected users
+      know.</h6>
+    <h6 style="display: flex; justify-content: flex-start; padding: 15px;">
+      &#x2022; If a new user joins, receive the event from the server using eventListner.</h6>
+    <h6 style="display: flex; justify-content: flex-start; padding: 15px;">
+      &#x2022; If a user leaves the chat, tell all the other users that this user has left the chat.</h6>
+    <h6 style="display: flex; justify-content: flex-start; padding: 15px;">
+      &#x2022; Server Side JavaScript will handle the Socket IO connections.</h6>
+    <h6 style="display: flex; justify-content: flex-start; padding: 15px;">
+      &#x2022; If someone sends the message, broadcast it to other people.</h6>
+  </body>
+  <script>
+    // Hamburger Menu
+
+    const btn = document.querySelector('button.mobile-menu-btn');
+    const menu = document.querySelector('.mobile-menu')
+
+    // Adding event Listeners
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle("hidden");
+    })
+  </script>
+
+</html>
