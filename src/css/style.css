@@ -71,7 +71,8 @@ border-bottom-right-radius:2rem;
 .joined{
   margin: auto;
   clear: both;
-  background-color: rgb(212, 179, 15); 
+  border-radius: 2rem;
+   background-image: linear-gradient(#d4b30f , #d4e865); 
 }
 
 .leftChat{

@@ -53,7 +53,7 @@ if(name==null || name=="" ){
 }
 socket.on('connect', () => {
   socket.emit('new-user-joined',name,socket.id)
-  append(`You joined the chat.\nUser Id is : \n${socket.id}`,'right')
+  append(`You joined the chat.\nUser Id is : \n${socket.id}`,'joined')
 });
 
 //If a new user joins,receive his name from the server(socket.on of 'index.js')
@@ -98,7 +98,7 @@ socket.on("activeUsers", (users) => {
 
 //If a new user joins,receive his name from the server(socket.on of 'index.js')
 socket.on('user-joined',(name,userId) =>{
-  append(`${name} joined the chat.\nUser Id is : \n${userId}`,'right')
+  append(`${name} joined the chat.\nUser Id is : \n${userId}`,'joined')
 })
 
 
