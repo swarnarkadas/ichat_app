@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="../assets/favicon.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iChat - Realtime Node Socket.io Chat App</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/theme.css">
+    <link rel="stylesheet" href="./dist/output.css">
+    <link rel="stylesheet" href="./css/handset.css" media="screen and (max-width: 600px)">
+
+</head>
+
+<body>
+    <header class="header sticky top-0 bg-white shadow-md px-8 py-02 z-10">
+        <div class="flex items-center justify-between">
+
+            <!-- logo -->
+            <h1 class="w-3/12">
+                <div class="flex flex-row  h-12 w-12">
+                    <img class="h-10 w-12 mobile:h-8 mobile:w-8 mobile:my-1" src="../assets/favicon.ico">
+                    <div class="ml-2 py-1 font-bold text-2xl text-indigo-700">iChat</div>
+                </div>
+            </h1>
+
+            <!-- navigation -->
+            <nav class="nav font-semibold text-gray-900 font-bold mobile:hidden">
+                <ul class="flex items-center">
+                    <li
+                        class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer active">
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li
+                        class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+                        <a href="#">Private Chat</a>
+                    </li>
+                    <li
+                        class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+                        <a href="#">About Us</a>
+                    </li>
+                    <li
+                        class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+                        <a href="./contact.html">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- buttons --->
+            <div class="w-3/12 flex justify-end mobile:hidden">
+                <a class="inline-block ml-auto mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
+                    href="#">Sign In</a>
+                <a class=" inline-block py-2 px-6 bg-indigo-600 hover:bg-indigo-500 text-sm text-white font-bold rounded-xl transition duration-200"
+                    href="#">Sign up</a>
+            </div>
+
+            <!-- Mobile Toggler -->
+            <div class="hidden mobile:flex mobile:flex-row ">
+                <button class="mobile-menu-btn navbar-burger flex items-center text-blue-600 p-3">
+                    <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <title>Mobile Toggler</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile-Menu  -->
+
+        <div class="hidden mobile-menu ">
+            <a href="#"
+                class="block p-4 font-bold border-b-2 border-blue-500 border-opacity-0 cursor-pointer active">Home</a>
+            <a href="#" class="block p-4 font-bold border-b-2 border-blue-500 border-opacity-0 cursor-pointer ">Private
+                Chat</a>
+            <a href="#" class="block p-4 font-bold border-b-2 border-blue-500 border-opacity-0 cursor-pointer "> About
+                Us</a>
+            <a href="#"
+                class="block p-4 font-bold border-b-2 border-blue-500 border-opacity-0 cursor-pointer">Contact</a>
+        </div>
+
+
+    </header>
+    <div class="flex h-screen antialiased text-gray-800">
+        <!-- Screen Content  -->
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+
+<div class="container max-w-full mx-auto py-20 px-6">
+  <div class="font-sans">
+  <div class="max-w-sm mx-auto px-6">
+    <div class="relative flex flex-wrap">
+      <div class="w-full relative">
+        <div class="mt-6">
+          <div class="text-center text-gray-900 font-bold text-2xl">
+            Contact Us
+          </div>
+         <span class="py-2 text-sm"> Let it be Technical Support, Sales Question or Bug Report. Let us Know !</span>
+          <form class="mt-8" target="#">
+            <div class="mx-auto max-w-lg">
+              <div class="py-2">
+                <input placeholder="Name" type="text"
+                  class="text-md block px-3 py-2  rounded-lg w-full 
+                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none" required>
+              </div>
+              <div class="py-2" >
+                <div class="relative">
+                  <input placeholder="Email" class="text-md block px-3 py-2 rounded-lg w-full 
+                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md
+                focus:placeholder-gray-500
+                focus:bg-white 
+                focus:border-gray-600  
+                focus:outline-none" required>
+                </div>
+                <div class="py-2">
+                    <textarea placeholder="Message" type="text"
+                      class="text-md block px-3 py-2  rounded-lg w-full 
+                    bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none" required></textarea>
+                  </div>
+              <div class="flex justify-center"><label class="block text-gray-500 font-bold my-4"><input type="checkbox"
+                    class="leading-loose text-pink-600"> 
+                    
+                    <span class="py-2 text-sm text-black leading-snug"> Send me a copy of the response</span></label> <label class="block text-gray-500 font-bold my-4"><a
+                    href="#"
+                    class="cursor-pointer tracking-tighter text-black border-b-2 border-gray-200 hover:border-gray-400"></a></label></div> <button class="mt-3 text-lg font-semibold 
+                    bg-indigo-700  w-full text-white rounded-lg
+                px-6 py-3 block shadow-xl hover:text-white hover:bg-indigo-500" >
+                Send
+              </button>
+            </div>
+          </form>
+       
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+</body>
+<script>
+    // Hamburger Menu
+
+    const btn = document.querySelector('button.mobile-menu-btn');
+    const menu = document.querySelector('.mobile-menu')
+
+    // Adding event Listeners
+
+    btn.addEventListener('click', () => {
+        menu.classList.toggle("hidden");
+    })
+</script>
+
+</html>
