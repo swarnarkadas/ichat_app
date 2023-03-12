@@ -1,5 +1,5 @@
 // Node Server which will handel socket.io connections
-
+console.log("server started")
 const { Socket } = require('socket.io')
 
 const io = require('socket.io')(5500)      //port no. 8000
@@ -28,6 +28,15 @@ io.on('connection', socket => {            //'io.on' is a socket.io instance(ser
 
     socket.on('encrypted-chat-send', (message,userIdValue) =>{               //if 'socket.on' listen the 'send' event means if anyone send' any message
         socket.to(userIdValue).emit('encrypted-chat-receive', {message : message, name: users[socket.id]})  //if anyone send message, then broadcast others the received message along with the senders name.
+    });
+
+    socket.on('join-room', (roomId) => {
+        socket.join(roomId);
+        console.log("joined room", roomId);
+    });
+
+    socket.on('room-chat-send', (message,roomIdValue) =>{               //if 'socket.on' listen the 'send' event means if anyone send' any message
+        socket.to(roomIdValue).emit('room-chat-receive', {message : message, name: users[socket.id], roomIdValue : roomIdValue})  //if anyone send message, then broadcast others the received message along with the senders name.
     });
 
     socket.on('disconnect',message =>{               //if 'socket.on' listen the 'disconnect' event means if anyone left from the chat

@@ -8,6 +8,9 @@ var socket = io('http://localhost:5500', { transports: ['websocket', 'polling', 
 //Get DOM elements in respective Js variables                                          
 const form = document.getElementById('send-container');
 const id = document.getElementById('userId');
+const roomInput = document.getElementById('roomId');
+const joinRoomBtn = document.getElementById('joinRoomBtn');
+const leaveRoomBtn = document.getElementById('leaveRoomBtn');
 const messageInput = document.getElementById('messageInp')
 const messageContainer = document.querySelector('.container')
 
@@ -122,11 +125,12 @@ socket.on('encrypted-chat-receive',(data,name) =>{
 
 //If the form gets submitted, send server the message
 form.addEventListener('submit', (e)=>{
+  feedback.innerHTML="";
   e.preventDefault();     //so the page will not reload
   const currentTime = new Date().toLocaleTimeString();
   const message = messageInput.value;
   console.log(id.value)
-  if(id.value==null || id.value==""){
+  if((id.value==null || id.value=="") && (roomInput.value==null || roomInput.value=="")){
       console.log(message);
       append(`You: ${message}`, 'right',currentTime);
       // append(`You: ${message}`,'right')    //If you send any message.
@@ -134,11 +138,18 @@ form.addEventListener('submit', (e)=>{
       messageInput.value =''    //after the message sent, make the menssage form' blank 
   }   
 
-  else{
+  else if((id.value!=null || id.value!="") && (roomInput.value==null || roomInput.value=="")){
       const userIdValue = id.value;
       console.log(message,userIdValue);
       append(`This is a private message :\n\nYou: ${message}`, 'right',currentTime);
       socket.emit('encrypted-chat-send',message,userIdValue);     //notify other that you send a message
+      messageInput.value =''    //after the message sent, make the menssage form' blank
+  }
+  else{
+      const roomIdValue = roomInput.value;
+      console.log(message,roomIdValue);
+      append(`Message sent in room ${roomIdValue} :\n\nYou: ${message}`, 'right',currentTime);
+      socket.emit('room-chat-send',message,roomIdValue);     //notify other that you send a message
       messageInput.value =''    //after the message sent, make the menssage form' blank
   }
 })
@@ -147,6 +158,25 @@ messageInp.addEventListener('keypress',function(){
   socket.emit('typing',name);
 });
 
+joinRoomBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const roomId = roomInput.value;
+  console.log(roomId+" is the room id");
+  append('You joined the room '+roomId,'joined')
+  socket.emit('join-room', roomId);
+})
+
+leaveRoomBtn.addEventListener('click', (e)=>{
+  e.preventDefault();
+  roomInput.value="";
+  socket.emit('join-room',roomInput.value);
+})
+
 socket.on('typing',function(data){
   feedback.innerHTML='<p><em>'+data+' is typing a message...</em></p>';
+});
+
+socket.on('room-chat-receive', (data) => {
+  const currentTime = new Date().toLocaleTimeString();
+  append(`Message received in room ${data.roomIdValue} :\n\n${data.name}: ${data.message}`, 'left', currentTime);
 });

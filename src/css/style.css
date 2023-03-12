@@ -119,6 +119,13 @@ border-bottom-right-radius:2rem;
   font-size: 0.9em;
 }
 
+#roomId{
+  width: 100%;
+  border-radius: 10px;
+  height: 34px;
+  font-size: 0.9em;
+}
+
 .mobile-menu{
   transition: all 2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
