@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"></script>
   <title>iChat - Realtime Node Socket.io Chat App</title>
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/theme.css">
@@ -78,6 +79,16 @@
     <div id="feedback"></div>
     <h4 class="font-bold text-base py-3">Private chat</h4>
           <input type="text" name="userId" placeholder="Enter User ID to chat" id="userId">
+          <br>
+          <input type="text" name="roomId" placeholder="Enter Room ID to chat" id="roomId">
+          <br>
+          <button 
+          class="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0 font-bold"
+          id="joinRoomBtn">Join Room</button>
+          <br>
+          <button 
+          class="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0 font-bold"
+          id="leaveRoomBtn">Leave Room</button>
         </div>
         <div class="flex flex-col mt-8 chatBody">
           <div class="flex flex-row items-center justify-between text-base">
@@ -209,4 +220,6 @@
     menu.classList.toggle("hidden");
   })
   </script>
+  
+  <script src="./js/client.js"></script>
 </html>
