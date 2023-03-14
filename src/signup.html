@@ -20,7 +20,7 @@
 </head>
 
 <body style="text-align: initial;">
-  <header class="header sticky top-0 bg-white shadow-md px-8 py-02">
+  <header class="header sticky top-0 bg-white z-10 shadow-md px-8 py-02">
     <div class="flex items-center justify-between">
 
       <!-- logo -->
@@ -102,12 +102,10 @@
                       <div class="w-full relative">
                         <div class="mt-6">
                           <div class="text-center text-gray-900 font-bold text-2xl">
-                            Contact Us
+                            Sign Up
                           </div>
-                          <span class="flex text-center py-2 text-sm"> Let it be Technical Support, Sales Question or Bug Report. Let
-                            us Know
-                            !</span>
-                          <form class="mt-8" action="https://formsubmit.co/swarnarkadas@gmail.com" method="POST">
+                          <span class="flex text-center py-2 text-sm"> Sign up and enjoy the premium services offered by Team iChat !</span>
+                          <form class="mt-8">
                             <div class="mx-auto max-w-lg">
                               <div class="py-2">
                                 <input placeholder="Name" type="text" name="Name"
@@ -117,31 +115,43 @@
                               </div>
                               <div class="py-2">
                                 <div class="relative">
-                                  <input placeholder="Email" name="Email" class="text-md block px-3 py-2 rounded-lg w-full 
+                                  <input type="email" placeholder="Email" name="Email" class="text-md block px-3 py-2 rounded-lg w-full 
                             bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md
                             focus:placeholder-gray-500
                             focus:bg-white 
                             focus:border-gray-600  
                             focus:outline-none" required>
                                 </div>
-                                <div class="py-2">
-                                  <textarea placeholder="Message" name="Message" type="text"
-                                    class="text-md block px-3 py-2  rounded-lg w-full 
-                                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"
-                                    required></textarea>
+                                <div class="relative py-2">
+                                  <input type="tel" placeholder="Phone" name="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phone" class="text-md block px-3 py-2 rounded-lg w-full 
+                            bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md
+                            focus:placeholder-gray-500
+                            focus:bg-white 
+                            focus:border-gray-600  
+                            focus:outline-none" required>
                                 </div>
-                                <div class="flex justify-center"><label
-                                    class="block text-gray-500 font-bold my-4"><input type="checkbox"
-                                      class="leading-loose text-pink-600">
+                                <div class="relative py-2">
+                                  <input placeholder="Password" name="Password" id="txtPassword"type="password" class="text-md block px-3 py-2 rounded-lg w-full 
+                            bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md
+                            focus:placeholder-gray-500
+                            focus:bg-white 
+                            focus:border-gray-600  
+                            focus:outline-none" required>
+                                </div>
+                                  <input placeholder="Confirm Password" name="Password" id="txtConfirmPassword" type="password" class="text-md block px-3 py-2 rounded-lg w-full 
+                            bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md
+                            focus:placeholder-gray-500
+                            focus:bg-white 
+                            focus:border-gray-600  
+                            focus:outline-none" required>
+                                </div>
 
-                                    <span class="py-2 text-sm text-black leading-snug"> Send me a copy of the
-                                      response</span></label> <label class="block text-gray-500 font-bold my-4"><a
-                                      href="#"
-                                      class="cursor-pointer tracking-tighter text-black border-b-2 border-gray-200 hover:border-gray-400"></a></label>
+                                <div class="flex justify-center">
+                                    
                                 </div> <button class="mt-3 text-lg font-semibold 
                                 bg-indigo-700  w-full text-white rounded-lg
-                            px-6 py-3 block shadow-xl hover:text-white hover:bg-indigo-500" type="submit">
-                                  Send
+                            px-6 py-3 block shadow-xl hover:text-white hover:bg-indigo-500" type="submit" onclick="return Validate()">
+                                  Create Account
                                 </button>
                               </div>
                           </form>
@@ -217,6 +227,33 @@
   btn.addEventListener('click', () => {
     menu.classList.toggle("hidden");
   })
+
+  // Phone Validation
+  var phone_input = document.getElementById("phone");
+
+    phone_input.addEventListener('input', () => {
+    phone_input.setCustomValidity('');
+    phone_input.checkValidity();
+});
+
+    phone_input.addEventListener('invalid', () => {
+        if(phone_input.value === '') {
+            phone_input.setCustomValidity('Enter phone number!');
+        } else {
+            phone_input.setCustomValidity('Enter phone number in this format: 123-456-7890');
+        }
+    });
+
+    // Password Validation
+    function Validate() {
+        var password = document.getElementById("txtPassword").value;
+        var confirmPassword = document.getElementById("txtConfirmPassword").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }    
 </script>
 
 </html>
