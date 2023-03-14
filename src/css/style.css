@@ -186,3 +186,50 @@ border-bottom-right-radius:2rem;
   justify-content: center;
   align-items: center;
 }
+
+#facebook:hover{
+  transform: scale(1.09);
+  transition: 1ms all linear;
+  color: white;
+  border-radius: 15px;
+  background-color: #4267B2;
+  padding: 3px;
+}
+
+#instagram:hover{
+  transform: scale(1.09);
+  transition: 1ms all linear;
+  color: white;
+  border-radius: 15px;
+  background-color: #E1306C;
+  padding: 3px;
+}
+
+#twitter:hover{
+  transform: scale(1.09);
+  transition: 1ms all linear;
+  color: #1DA1F2;
+  border-radius: 15px;
+  background-color: white;
+  padding: 3px;
+}
+
+#linkedin:hover{
+  transform: scale(1.09);
+  transition: 1ms all linear;
+  color: white;
+  border-radius: 15px;
+  background-color: #4267B2;
+  padding: 3px;
+}
+
+#github:hover{
+  transform: scale(1.09);
+  transition: 1ms all linear;
+  color: white;
+  border-radius: 15px;
+  background-color: black;
+  padding: 3px;
+}
+
+
