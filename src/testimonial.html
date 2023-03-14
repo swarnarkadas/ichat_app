@@ -26,10 +26,9 @@
         flex-direction: column;
         padding-left: 0px !important;
         margin-right: 0px !important;
-        margin-bottom: 10px;
       "
     >
-      <header class="header sticky top-0 bg-white shadow-md px-8 py-02">
+      <header class="header sticky top-0 z-10 bg-white shadow-md px-8 py-02">
         <div class="flex items-center justify-between">
           <!-- logo -->
           <h1 class="w-3/12">
@@ -127,7 +126,7 @@
           >
         </div>
       </header>
-      <div class="slide-container swiper">
+      <div class="slide-container swiper mt-12 mb-12">
         <h3>Testimonial</h3>
         <h2>-What People Think-</h2>
         <div class="slide-content">
@@ -423,7 +422,18 @@
       </footer>
     </div>
   </body>
-
+  <script>
+    // Hamburger Menu
+  
+    const btn = document.querySelector('button.mobile-menu-btn');
+    const menu = document.querySelector('.mobile-menu')
+  
+    // Adding event Listeners
+  
+    btn.addEventListener('click', () => {
+      menu.classList.toggle("hidden");
+    })
+    </script>
   <script src="../src/js/swiper-bundle.min.js"></script>
   <script src="../src/js/testimonial.js"></script>
 </html>
