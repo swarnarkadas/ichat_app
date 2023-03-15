@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/translate.css">
   <title>iChat - Realtime Chat App</title>
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/about_us.css">
@@ -15,6 +16,9 @@
   <style>
     #container{
       overflow: hidden;
+    }
+    html{
+      height: 135%!important;
     }
   </style>
 </head>
@@ -50,6 +54,10 @@
             class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
             <a href="./contact.html" target="_blank">Contact</a>
           </li>
+          <li
+          class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+          <a href="./testimonial.html" target="_blank">Testimonial</a>
+        </li>
         </ul>
       </nav>
 
@@ -197,6 +205,7 @@
           </svg>
         </a>
       </div>
+      <div id="google_translate_element" class="flex flex-col items-center justify-center mt-3"></div>
     </div>
 
     <div class="bg-gradient-to-r from-purple-400 via-red-400 to-pink-400 text-center text-white pb-4">
@@ -218,5 +227,13 @@
     menu.classList.toggle("hidden");
   })
 </script>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+  }
+</script>
+
+<script type="text/javascript"
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </html>
