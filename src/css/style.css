@@ -2,6 +2,12 @@
   width: 10px;
 }
 
+.VIpgJd-ZVi9od-l4eHX-hSRGPd{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 ::-webkit-scrollbar-thumb{
   background-color: rgb(210, 95, 13);
   background-clip: content-box;
