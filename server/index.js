@@ -1,12 +1,39 @@
-// Node Server which will handel socket.io connections
+// Requiring Modules for Database 
+const Connection = require('./database/db')
+const bp = require('body-parser')
+const User = require('./database/Models/schema')
+
 console.log("server started")
+// Node Server which will handel socket.io connections
+const express = require('express')
+const PORT = 3000;
 const { Socket } = require('socket.io')
+
+const App = express()
+
+
+App.use(bp.json());
+App.use(bp.urlencoded({extended: false}))
 
 const io = require('socket.io')(5500)      //port no. 8000
 
 const users = {};
 let activeUsers = [];
 
+//loading static asssets
+App.use(express.static("../src"))
+
+App.listen(PORT, () => {
+    console.log("App listening at port " + PORT)
+    try{
+        Connection();
+    }
+    catch{
+        console.log("Couldnot Connect to Database")
+    }
+})
+
+//Socket.io conections
 
 io.on('connection', socket => {            //'io.on' is a socket.io instance(server) which will listen many Socket connections
     socket.on('new-user-joined', (name,socketId) => {      //& 'socket.on' is related to any particular Socket connections, Here 'socket.on' send a event named -'new-user-joined'
@@ -47,4 +74,27 @@ io.on('connection', socket => {            //'io.on' is a socket.io instance(ser
         delete users[socket.id];             //& after that user left the Chat, delete that user from 'users' array
         socket.broadcast.emit("activeUsers", activeUsers);
     });
+})
+
+// Users route
+App.post('/savetodb', (req, res) => {
+    const name = req.body.Name
+    const email = req.body.Email
+    const phone = req.body.Phone
+    const password = req.body.Password
+
+    console.log()
+    const newUser = new User({
+        name: name,
+        email: email,
+        phone: phone,
+        password: password
+    })
+    try {
+        newUser.save()
+        res.status(201).send("Voila! Data saved Successfully !!!");
+    }
+    catch {
+        console.log("Couldnot save data to Database")
+    }
 })
