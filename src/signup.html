@@ -113,7 +113,7 @@
                             Sign Up
                           </div>
                           <span class="flex text-center py-2 text-sm"> Sign up and enjoy the premium services offered by Team iChat !</span>
-                          <form class="mt-8">
+                          <form class="mt-8" action="/savetodb" method="POST">
                             <div class="mx-auto max-w-lg">
                               <div class="py-2">
                                 <input placeholder="Name" type="text" name="Name"
@@ -146,7 +146,7 @@
                             focus:border-gray-600  
                             focus:outline-none" required>
                                 </div>
-                                  <input placeholder="Confirm Password" name="Password" id="txtConfirmPassword" type="password" class="text-md block px-3 py-2 rounded-lg w-full 
+                                  <input placeholder="Confirm Password" id="txtConfirmPassword" name="ConfPass" type="password" class="text-md block px-3 py-2 rounded-lg w-full 
                             bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md
                             focus:placeholder-gray-500
                             focus:bg-white 
