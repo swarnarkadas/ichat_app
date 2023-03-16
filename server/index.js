@@ -2,6 +2,7 @@
 const Connection = require('./database/db')
 const bp = require('body-parser')
 const User = require('./database/Models/schema')
+const bcrypt = require('bcryptjs')
 
 console.log("server started")
 // Node Server which will handel socket.io connections

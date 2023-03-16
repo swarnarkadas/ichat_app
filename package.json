@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mecivil/ichat_app#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "popups": "^1.1.3",
     "socket.io": "^4.6.0"
   }
