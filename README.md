@@ -83,15 +83,15 @@ git push -u origin <new-branch-name>
 - Click on ```Create pull request``` button.
 - Now chillax 🥳, and wait for the PR to get reviewed and merged.
 
-<h1>User 1: Swarnarka Das</h1>
+<h1>User 1: </h1>
 
-![Screenshot (257)](https://user-images.githubusercontent.com/84660268/217365582-f06c975b-0403-40d1-a98c-164e36d47d3c.png)
+![client1](https://user-images.githubusercontent.com/90945182/231252057-1eb9a395-61af-400b-8a79-7e82e341900f.png)
 
 
-<h1>User 2: Ray</h1>
 
-![Screenshot (258)](https://user-images.githubusercontent.com/84660268/217365748-81432018-3588-4512-8a28-365e9bae3d33.png)
+<h1>User 2: </h1>
 
+![client2](https://user-images.githubusercontent.com/90945182/231252158-8d461916-9206-43f6-9d3e-1e8c5986e34e.png)
 
 
 ## Project Admin
